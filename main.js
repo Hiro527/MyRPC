@@ -4,7 +4,8 @@ const config = require('./config.json');
 DiscordRPC.register(config.appID);
 const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 
-const startAt;
+rpc.login({ clientId: config.appID });
+const startAt = Math.floor(Date.now() / 1e3);
 
 const updateRPC = () => {
     const rpcActivity = {
@@ -22,8 +23,3 @@ rpc.on('ready', () => {
     console.log('準備完了')
     setInterval(updateRPC, 500);
 })
-
-setTimeout(() => {
-    rpc.login({ clientId: config.appID });
-    startAt = Math.floor(Date.now() / 1e3);
-}, 60000);
