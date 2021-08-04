@@ -9,7 +9,7 @@ const startAt = Math.floor(Date.now() / 1e3);
 
 const updateRPC = () => {
     const rpcActivity = {
-        state: 'まったり中😁',
+        state: config.status,
         largeImageKey: 'nyan',
         largeImageText: 'こんなところ読んでないで勉強しなさい',
         startTimestamp: startAt,
